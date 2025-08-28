@@ -22,22 +22,22 @@ export default function HeroSection({
   backgroundAlt,
 }: HeroSectionProps) {
   return (
-    <section className="relative h-screen flex items-center justify-center text-center text-white">
+    <section className="relative h-screen flex items-center justify-center text-center text-white overflow-hidden">
       {/* Background Image */}
-      <div className="fixed inset-0 -z-10">
+      <div className="absolute inset-0 z-0">
         <img 
           src={backgroundImage}
           alt={backgroundAlt}
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-black/40"></div>
+        <div className="absolute inset-0 bg-black/60"></div>
       </div>
       
       <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 animate-fade-in">
-        <h1 className="text-4xl md:text-6xl font-bold mb-6" data-testid="hero-title">
+        <h1 className="text-4xl md:text-6xl font-bold mb-6 text-white drop-shadow-lg" data-testid="hero-title">
           {title}
         </h1>
-        <p className="text-xl md:text-2xl mb-8 text-gray-100" data-testid="hero-subtitle">
+        <p className="text-xl md:text-2xl mb-8 text-white drop-shadow-md" data-testid="hero-subtitle">
           {subtitle}
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
