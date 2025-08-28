@@ -1,0 +1,315 @@
+Prompt de Codificação: MVP do Site da Escola de Direção Moderna 
+Crie um site institucional elegante e responsivo para uma escola de direção que converta visitantes em alunos com confiança e facilidade.
+
+Visão do Projeto
+Crie um site moderno, focado em conversões, para uma escola de direção que une profissionalismo com acessibilidade. O site deve ter uma aparência confiável, limpa e orientada para a ação, incentivando os visitantes a darem o próximo passo em direção à obtenção da carteira de motorista. Utilize visuais brilhantes e amigáveis emparelhados com uma navegação intuitiva e chamadas fortes para a ação.
+
+Estrutura e Seções do Site
+O site deve ter a seguinte estrutura e ordem de seções:
+
+1. Cabeçalho (Header)
+
+Logotipo "AutoEscola Plus" no canto superior esquerdo.
+
+Menu de navegação horizontal com os seguintes itens: Início, Sobre, Serviços, Depoimentos, Contato.
+
+Botão "Matricule-se" no canto superior direito.
+
+2. Seção Inicial (Hero Section)
+
+Título em destaque: "Sua Habilitação Começa Aqui".
+
+Subtítulo: "Há mais de 20 anos formando condutores responsáveis com metodologia comprovada e 95% de aprovação".
+
+Dois botões de ação abaixo do texto: um botão principal "Matricule-se Agora" e um botão secundário "Conheça Nossa História".
+
+Fundo: uma imagem de alta qualidade de um interior de carro, com uma pessoa feliz no banco do motorista e um instrutor ao lado.
+
+3. Seção "Por que escolher a AutoEscola Plus?"
+
+Título principal: "Por que escolher a AutoEscola Plus?".
+
+Subtítulo: "Tradição, qualidade e compromisso com sua aprovação".
+
+Três cartões informativos, cada um com um ícone e um título, alinhados horizontalmente:
+
+Cartão 1: Ícone de aprovação. Título: "95% de Aprovação". Descrição: "Uma das maiores taxas de aprovação da região...".
+
+Cartão 2: Ícone de tradição. Título: "20 Anos de Tradição". Descrição: "Duas décadas formando condutores...".
+
+Cartão 3: Ícone de instrutor qualificado. Título: "Instrutores Qualificados". Descrição: "Equipe especializada e certificada...".
+
+4. Seção "Nossos Serviços"
+
+Título: "Nossos Serviços".
+
+Subtítulo: "Oferecemos cursos completos para todas as categorias de habilitação".
+
+Quatro cartões de serviço, alinhados horizontalmente:
+
+Cartão A: Título: "Categoria A". Descrição: "Motos e Ciclomotores". Botão: "Saiba mais ->".
+
+Cartão B: Título: "Categoria B". Descrição: "Carros e Utilitários". Botão: "Saiba mais ->".
+
+Cartão C: Título: "Categoria C". Descrição: "Caminhões". Botão: "Saiba mais ->".
+
+Cartão D: Título: "Categoria D". Descrição: "Ônibus". Botão: "Saiba mais ->".
+
+Botão adicional na parte inferior da seção: "Ver Todos os Serviços".
+
+5. Seção de Estatísticas
+
+Quatro números em destaque, alinhados horizontalmente, cada um com um ícone e uma breve descrição:
+
+Número 1: "5000+" - Alunos Formados.
+
+Número 2: "95%" - Taxa de Aprovação.
+
+Número 3: "20" - Anos de Experiência.
+
+Número 4: "15" - Instrutores Especializados.
+
+6. Seção de Chamada para Ação (CTA)
+
+Título: "Pronto para tirar sua habilitação?".
+
+Subtítulo: "Entre em contato conosco e dê o primeiro passo...".
+
+Dois botões grandes e distintos:
+
+"Fale Conosco" (cor primária do site).
+
+"WhatsApp" (verde, com ícone do WhatsApp).
+
+7. Rodapé (Footer)
+
+Coluna 1: Breve descrição da autoescola.
+
+Coluna 2: Navegação (Início, Sobre, Serviços, Depoimentos, Contato).
+
+Coluna 3: Informações de Contato (Telefone, E-mail, Endereço).
+
+Coluna 4: Redes Sociais (ícones do Facebook e Instagram).
+
+Texto de direitos autorais no final do rodapé: "© 2024 AutoEscola Plus. Todos os direitos reservados."
+
+
+Além da página inicial, o site do vídeo inclui seções detalhadas acessíveis através do menu de navegação. Cada uma dessas "páginas" deve ser estruturada e estilizada da seguinte forma:
+
+1. Página "Sobre"
+Esta página é acessada pelo link "Sobre" no cabeçalho. Ela detalha a história, os valores, a equipe e a estrutura da autoescola.
+
+Título Principal: "Nossa História"
+
+Subtítulo: "20 anos de tradição formando condutores responsáveis"
+
+Seção "Uma jornada de excelência desde 2004":
+
+Estrutura: Um layout de duas colunas. A coluna da esquerda contém um texto descritivo sobre a história e a filosofia da autoescola. A coluna da direita exibe uma imagem de instrutor e aluno dentro de um carro, ambos sorrindo.
+
+Seção "Nossos Valores":
+
+Título: "Nossos Valores"
+
+Subtítulo: "Princípios que nos guiam há mais de duas décadas"
+
+Estrutura: Três cartões informativos, alinhados horizontalmente, cada um com um ícone, um título e uma descrição:
+
+Cartão 1: Segurança - "Priorizamos sempre a segurança de nossos alunos e de todos no trânsito".
+
+Cartão 2: Compromisso - "Dedicação total ao sucesso e aprovação de cada um de nossos alunos".
+
+Cartão 3: Inovação - "Sempre atualizados com as melhores metodologias de ensino".
+
+Seção "Nossa Equipe":
+
+Título: "Nossa Equipe"
+
+Subtítulo: "Profissionais qualificados e dedicados ao seu sucesso"
+
+Estrutura: Três cartões com fotos e informações dos instrutores:
+
+Carlos Silva: Diretor e Instrutor.
+
+Maria Santos: Instrutora Teórica.
+
+João Oliveira: Instrutor Prático.
+
+Seção "Nossa Estrutura":
+
+Título: "Nossa Estrutura"
+
+Subtítulo: "Conheça nossas instalações modernas e bem equipadas"
+
+Estrutura: Uma galeria de seis imagens em um layout de duas colunas, cada imagem acompanhada de uma legenda:
+
+Salas de Aula Modernas.
+
+Frota Moderna e Segura.
+
+Área de Espera Confortável.
+
+Simuladores Avançados.
+
+Recepção Acolhedora.
+
+Pista de Treinamento.
+
+Seção Final de CTA (Chamada para Ação): A mesma seção de CTA da página inicial, com o título "Faça parte da nossa história", um subtítulo e um botão "Comece Sua Jornada".
+
+2. Página "Serviços"
+Acessível pelo link "Serviços" no cabeçalho, esta página detalha as opções de cursos e serviços adicionais.
+
+Título Principal: "Nossos Serviços"
+
+Subtítulo: "Cursos completos para todas as categorias de habilitação"
+
+Seção de Categorias de Habilitação:
+
+Estrutura: Quatro blocos de serviço, cada um com um ícone, um título, uma lista de itens incluídos no curso (o que inclui), o preço e um botão para matricular-se.
+
+Categoria A (Motos): Itens como aulas teóricas, simulador, aulas práticas e exame médico. Preço em destaque: "R$ 1.299 em até 12x".
+
+Categoria B (Carros): Itens como aulas teóricas, simulador, aulas práticas e exame psicotécnico. Preço em destaque: "R$ 1.799 em até 12x".
+
+Categoria C (Caminhões): Itens como aulas teóricas, práticas e transporte de cargas. Preço em destaque: "R$ 2.299 em até 12x".
+
+Categoria D (Ônibus): Itens como aulas teóricas, práticas e transporte de passageiros. Preço em destaque: "R$ 2.599 em até 12x".
+
+Seção "Serviços Adicionais":
+
+Título: "Serviços Adicionais"
+
+Subtítulo: "Oferecemos também outros serviços para complementar sua formação"
+
+Estrutura: Três cartões alinhados horizontalmente, cada um com um ícone, um título, uma descrição breve, o preço e um botão "Saiba Mais".
+
+Reciclagem CNH: "Curso obrigatório para renovação de habilitação...". Preço: R$ 299.
+
+Direção Defensiva: "Curso especializado em técnicas de direção segura". Preço: R$ 199.
+
+Primeiros Socorros: "Aprenda a prestar socorro em situações de emergência". Preço: R$ 149.
+
+Seção "Como Funciona":
+
+Título: "Como Funciona"
+
+Subtítulo: "Processo simples e transparente para obter sua habilitação"
+
+Estrutura: Quatro blocos numerados (1 a 4) com ícones e descrições, representando o passo a passo:
+
+1. Matrícula: "Venha até nossa unidade ou entre em contato para se matricular".
+
+2. Exames: "Realizamos os exames médico e psicotécnico necessários".
+
+3. Aulas: "Aulas teóricas e práticas com nossos instrutores qualificados".
+
+4. Aprovação: "Prova final no DETRAN e retirada da sua habilitação".
+
+Seção Final de CTA: A mesma seção de CTA da página inicial, com o título "Pronto para começar?", um subtítulo e dois botões ("Matricule-se Agora" e "Fale no WhatsApp").
+
+3. Página "Depoimentos"
+Acessada pelo link "Depoimentos" no cabeçalho.
+
+Título Principal: "Depoimentos"
+
+Subtítulo: "Veja o que nossos alunos dizem sobre a AutoEscola Plus"
+
+Seção de Depoimento em Destaque:
+
+Estrutura: Um carrossel horizontal que exibe um depoimento por vez. O depoimento de Ana Carolina Silva é o primeiro, com sua foto, nota de 5 estrelas, data e o texto: "Excelente autoescola! Os instrutores são muito pacientes e didáticos...". Botões de navegação (<- e ->) permitem visualizar outros depoimentos.
+
+Seção "Mais Depoimentos":
+
+Título: "Mais Depoimentos"
+
+Subtítulo: "Histórias reais de sucesso dos nossos alunos"
+
+Estrutura: Uma galeria de vários depoimentos em blocos, cada um com a foto do aluno, o nome, a categoria de habilitação, a data e o texto do depoimento.
+
+Seção "Histórias de Sucesso":
+
+Título: "Histórias de Sucesso"
+
+Subtítulo: "Números que comprovam nossa excelência"
+
+Estrutura: Quatro estatísticas em destaque, idênticas às da página inicial, mas com títulos diferentes:
+
+98% - Satisfação dos Alunos.
+
+5000+ - Depoimentos Positivos.
+
+4.9 - Avaliação Média.
+
+95% - Taxa de Aprovação.
+
+Seção "Depoimentos em Vídeo":
+
+Título: "Depoimentos em Vídeo"
+
+Subtítulo: "Conheça as histórias completas dos nossos alunos"
+
+Estrutura: Uma galeria com miniaturas de vídeos de depoimentos. Cada miniatura tem um título e uma descrição (e.g., "Amanda Costa - Categoria B"). Botões de navegação (<- e ->) para ver outros vídeos.
+
+Seção Final de CTA: A mesma seção de CTA da página inicial, com o título "Seja o próximo a conquistar sua habilitação".
+
+4. Página "Contato"
+Acessada pelo link "Contato" no cabeçalho.
+
+Título Principal: "Entre em Contato"
+
+Subtítulo: "Estamos prontos para ajudar você a conquistar sua habilitação"
+
+Estrutura: Um layout de duas colunas.
+
+Coluna da Esquerda: Formulário de contato com os seguintes campos obrigatórios:
+
+Nome Completo.
+
+Telefone/WhatsApp.
+
+E-mail.
+
+Categoria de Interesse (campo de seleção dropdown).
+
+Mensagem (área de texto com limite de 500 caracteres).
+
+Botão "Enviar Mensagem".
+
+Coluna da Direita: "Informações de Contato" com os detalhes da autoescola:
+
+Endereço: "Av. Principal, 123 - São Paulo, SP".
+
+Telefones: (11) 9 9999-9999.
+
+E-mail: contato@autoescolaplus.com.br.
+
+Horário de Funcionamento: De segunda a sexta, das 8h às 18h. Sábado, das 8h às 14h. Domingo, fechado.
+
+Dois botões, um para "Falar no WhatsApp" e outro para "Ligar Agora".
+
+Seção "Nossa Localização":
+
+Título: "Nossa Localização"
+
+Subtítulo: "Visite nossa unidade e conheça nossa estrutura"
+
+Estrutura: Um mapa do Google Maps incorporado, focado no endereço da autoescola. Abaixo do mapa, as informações de localização são repetidas e há um botão "Ver no Maps".
+
+Seção "Perguntas Frequentes":
+
+Título: "Perguntas Frequentes"
+
+Subtítulo: "Tire suas dúvidas sobre nossos cursos e serviços"
+
+Estrutura: Uma lista de perguntas e respostas em formato de acordeão, que se expandem ao serem clicadas. As perguntas são:
+
+"Qual é o tempo médio para conseguir a habilitação?"
+
+"Posso parcelar o pagamento do curso?"
+
+"Qual a taxa de aprovação da autoescola?"
+
+"Vocês fazem busca e entrega na minha residência?"
+
+Seção Final de CTA: A mesma seção de CTA da página inicial, com o título "Não perca mais tempo!".
