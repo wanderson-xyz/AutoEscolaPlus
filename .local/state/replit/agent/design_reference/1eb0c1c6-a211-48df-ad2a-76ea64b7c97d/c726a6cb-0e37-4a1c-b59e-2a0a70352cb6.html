@@ -1,0 +1,2052 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoEscola Plus - Sua Habilitação Começa Aqui</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                borderRadius: {
+                    lg: "var(--radius)",
+                    md: "calc(var(--radius) - 2px)",
+                    sm: "calc(var(--radius) - 4px)",
+                },
+                colors: {
+                    background: "var(--background)",
+                    foreground: "var(--foreground)",
+                    card: {
+                        DEFAULT: "var(--card)",
+                        foreground: "var(--card-foreground)",
+                    },
+                    popover: {
+                        DEFAULT: "var(--popover)",
+                        foreground: "var(--popover-foreground)",
+                    },
+                    primary: {
+                        DEFAULT: "var(--primary)",
+                        foreground: "var(--primary-foreground)",
+                    },
+                    secondary: {
+                        DEFAULT: "var(--secondary)",
+                        foreground: "var(--secondary-foreground)",
+                    },
+                    muted: {
+                        DEFAULT: "var(--muted)",
+                        foreground: "var(--muted-foreground)",
+                    },
+                    accent: {
+                        DEFAULT: "var(--accent)",
+                        foreground: "var(--accent-foreground)",
+                    },
+                    destructive: {
+                        DEFAULT: "var(--destructive)",
+                        foreground: "var(--destructive-foreground)",
+                    },
+                    border: "var(--border)",
+                    input: "var(--input)",
+                    ring: "var(--ring)",
+                },
+                fontFamily: {
+                    sans: ["Inter", "system-ui", "sans-serif"],
+                }
+            },
+        }
+    };
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --background: hsl(210 40% 98%);
+            --foreground: hsl(222.2 84% 4.9%);
+            --card: hsl(0 0% 100%);
+            --card-foreground: hsl(222.2 84% 4.9%);
+            --popover: hsl(0 0% 100%);
+            --popover-foreground: hsl(222.2 84% 4.9%);
+            --primary: hsl(221.2 83.2% 53.3%);
+            --primary-foreground: hsl(210 40% 98%);
+            --secondary: hsl(210 40% 96%);
+            --secondary-foreground: hsl(222.2 84% 4.9%);
+            --muted: hsl(210 40% 96%);
+            --muted-foreground: hsl(215.4 16.3% 46.9%);
+            --accent: hsl(142.1 76.2% 36.3%);
+            --accent-foreground: hsl(355.7 100% 97.3%);
+            --destructive: hsl(0 84.2% 60.2%);
+            --destructive-foreground: hsl(210 40% 98%);
+            --border: hsl(214.3 31.8% 91.4%);
+            --input: hsl(214.3 31.8% 91.4%);
+            --ring: hsl(221.2 83.2% 53.3%);
+            --radius: 0.75rem;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, hsl(221.2 83.2% 53.3%) 0%, hsl(210 40% 96%) 100%);
+        }
+        
+        .hero-bg {
+            background: linear-gradient(rgba(37, 99, 235, 0.8), rgba(37, 99, 235, 0.6));
+        }
+        
+        .stats-gradient {
+            background: linear-gradient(90deg, hsl(221.2 83.2% 53.3%) 0%, hsl(142.1 76.2% 36.3%) 100%);
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-primary {
+            background: hsl(221.2 83.2% 53.3%);
+            color: hsl(210 40% 98%);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background: hsl(221.2 83.2% 45%);
+            transform: translateY(-1px);
+        }
+        
+        .btn-whatsapp {
+            background: hsl(142.1 76.2% 36.3%);
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-whatsapp:hover {
+            background: hsl(142.1 76.2% 30%);
+            transform: translateY(-1px);
+        }
+        
+        .page {
+            display: none;
+        }
+        
+        .page.active {
+            display: block;
+        }
+        
+        .nav-link.active {
+            color: hsl(221.2 83.2% 53.3%);
+            font-weight: 600;
+        }
+        
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        
+        .accordion-content.active {
+            max-height: 200px;
+        }
+        
+        .carousel-container {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .carousel-slide {
+            display: none;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        
+        .carousel-slide.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .number-counter {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: hsl(221.2 83.2% 53.3%);
+        }
+    </style>
+</head>
+<body class="bg-background text-foreground font-sans">
+
+<!-- @COMPONENT: Header -->
+<header class="bg-card shadow-sm border-b border-border sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+            <!-- Logo -->
+            <div class="flex items-center">
+                <i class="fas fa-car text-primary text-2xl mr-3"></i>
+                <span class="text-xl font-bold text-foreground">AutoEscola Plus</span>
+            </div>
+            
+            <!-- Navigation -->
+            <nav class="hidden md:flex space-x-8">
+                <a href="#" class="nav-link active text-muted-foreground hover:text-primary transition-colors" data-page="home">Início</a>
+                <a href="#" class="nav-link text-muted-foreground hover:text-primary transition-colors" data-page="about">Sobre</a>
+                <a href="#" class="nav-link text-muted-foreground hover:text-primary transition-colors" data-page="services">Serviços</a>
+                <a href="#" class="nav-link text-muted-foreground hover:text-primary transition-colors" data-page="testimonials">Depoimentos</a>
+                <a href="#" class="nav-link text-muted-foreground hover:text-primary transition-colors" data-page="contact">Contato</a>
+            </nav>
+            
+            <!-- CTA Button -->
+            <button class="btn-primary px-6 py-2 rounded-lg font-semibold shadow-md">
+                Matricule-se
+            </button>
+            
+            <!-- Mobile menu button -->
+            <button class="md:hidden text-muted-foreground" id="mobile-menu-btn">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Navigation -->
+        <div class="md:hidden hidden" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 bg-card border-t border-border">
+                <a href="#" class="nav-link active block px-3 py-2 text-muted-foreground hover:text-primary" data-page="home">Início</a>
+                <a href="#" class="nav-link block px-3 py-2 text-muted-foreground hover:text-primary" data-page="about">Sobre</a>
+                <a href="#" class="nav-link block px-3 py-2 text-muted-foreground hover:text-primary" data-page="services">Serviços</a>
+                <a href="#" class="nav-link block px-3 py-2 text-muted-foreground hover:text-primary" data-page="testimonials">Depoimentos</a>
+                <a href="#" class="nav-link block px-3 py-2 text-muted-foreground hover:text-primary" data-page="contact">Contato</a>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- @END_COMPONENT: Header -->
+
+<!-- @COMPONENT: HomePage -->
+<div id="home" class="page active">
+    <!-- Hero Section -->
+    <section class="relative h-screen flex items-center justify-center text-center text-white">
+        <!-- Happy student with instructor in modern car interior -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1920&h=1080" 
+                 alt="Happy student with instructor in car" 
+                 class="w-full h-full object-cover">
+            <div class="hero-bg absolute inset-0"></div>
+        </div>
+        
+        <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6">
+                Sua Habilitação Começa Aqui
+            </h1>
+            <p class="text-xl md:text-2xl mb-8 text-gray-100">
+                Há mais de 20 anos formando condutores responsáveis com metodologia comprovada e 95% de aprovação
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button class="btn-primary px-8 py-4 rounded-lg text-lg font-semibold shadow-lg">
+                    Matricule-se Agora
+                </button>
+                <button class="bg-white text-primary px-8 py-4 rounded-lg text-lg font-semibold shadow-lg hover:bg-gray-100 transition-colors">
+                    Conheça Nossa História
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Section -->
+    <section class="py-20 bg-background">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-foreground mb-4">
+                    Por que escolher a AutoEscola Plus?
+                </h2>
+                <p class="text-xl text-muted-foreground">
+                    Tradição, qualidade e compromisso com sua aprovação
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="card-hover bg-card p-8 rounded-xl shadow-lg border border-border text-center">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-trophy text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">95% de Aprovação</h3>
+                    <p class="text-muted-foreground">
+                        Uma das maiores taxas de aprovação da região, fruto do nosso método exclusivo de ensino.
+                    </p>
+                </div>
+                
+                <!-- Card 2 -->
+                <div class="card-hover bg-card p-8 rounded-xl shadow-lg border border-border text-center">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-medal text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">20 Anos de Tradição</h3>
+                    <p class="text-muted-foreground">
+                        Duas décadas formando condutores responsáveis e comprometidos com a segurança no trânsito.
+                    </p>
+                </div>
+                
+                <!-- Card 3 -->
+                <div class="card-hover bg-card p-8 rounded-xl shadow-lg border border-border text-center">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-user-graduate text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">Instrutores Qualificados</h3>
+                    <p class="text-muted-foreground">
+                        Equipe especializada e certificada, sempre atualizada com as melhores práticas de ensino.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="py-20 bg-muted">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-foreground mb-4">
+                    Nossos Serviços
+                </h2>
+                <p class="text-xl text-muted-foreground">
+                    Oferecemos cursos completos para todas as categorias de habilitação
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+                <!-- Category A -->
+                <div class="card-hover bg-card p-6 rounded-xl shadow-lg border border-border">
+                    <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-motorcycle text-primary text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-2">Categoria A</h3>
+                    <p class="text-muted-foreground mb-4">Motos e Ciclomotores</p>
+                    <button class="text-primary font-medium hover:underline">
+                        Saiba mais <i class="fas fa-arrow-right ml-1"></i>
+                    </button>
+                </div>
+                
+                <!-- Category B -->
+                <div class="card-hover bg-card p-6 rounded-xl shadow-lg border border-border">
+                    <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-car text-primary text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-2">Categoria B</h3>
+                    <p class="text-muted-foreground mb-4">Carros e Utilitários</p>
+                    <button class="text-primary font-medium hover:underline">
+                        Saiba mais <i class="fas fa-arrow-right ml-1"></i>
+                    </button>
+                </div>
+                
+                <!-- Category C -->
+                <div class="card-hover bg-card p-6 rounded-xl shadow-lg border border-border">
+                    <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-truck text-primary text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-2">Categoria C</h3>
+                    <p class="text-muted-foreground mb-4">Caminhões</p>
+                    <button class="text-primary font-medium hover:underline">
+                        Saiba mais <i class="fas fa-arrow-right ml-1"></i>
+                    </button>
+                </div>
+                
+                <!-- Category D -->
+                <div class="card-hover bg-card p-6 rounded-xl shadow-lg border border-border">
+                    <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-bus text-primary text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-2">Categoria D</h3>
+                    <p class="text-muted-foreground mb-4">Ônibus</p>
+                    <button class="text-primary font-medium hover:underline">
+                        Saiba mais <i class="fas fa-arrow-right ml-1"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="text-center">
+                <button class="btn-primary px-8 py-3 rounded-lg font-semibold">
+                    Ver Todos os Serviços
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section class="py-20 bg-background">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8 text-center">
+                <div class="p-6">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-users text-primary text-2xl"></i>
+                    </div>
+                    <div class="number-counter">5000+</div>
+                    <p class="text-muted-foreground font-medium">Alunos Formados</p>
+                </div>
+                
+                <div class="p-6">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-check-circle text-primary text-2xl"></i>
+                    </div>
+                    <div class="number-counter">95%</div>
+                    <p class="text-muted-foreground font-medium">Taxa de Aprovação</p>
+                </div>
+                
+                <div class="p-6">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-calendar-alt text-primary text-2xl"></i>
+                    </div>
+                    <div class="number-counter">20</div>
+                    <p class="text-muted-foreground font-medium">Anos de Experiência</p>
+                </div>
+                
+                <div class="p-6">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-chalkboard-teacher text-primary text-2xl"></i>
+                    </div>
+                    <div class="number-counter">15</div>
+                    <p class="text-muted-foreground font-medium">Instrutores Especializados</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 stats-gradient">
+        <div class="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
+                Pronto para tirar sua habilitação?
+            </h2>
+            <p class="text-xl text-white/90 mb-8">
+                Entre em contato conosco e dê o primeiro passo para conquistar sua independência
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button class="bg-white text-primary px-8 py-4 rounded-lg text-lg font-semibold shadow-lg hover:bg-gray-100 transition-colors">
+                    Fale Conosco
+                </button>
+                <button class="btn-whatsapp px-8 py-4 rounded-lg text-lg font-semibold shadow-lg">
+                    <i class="fab fa-whatsapp mr-2"></i>
+                    WhatsApp
+                </button>
+            </div>
+        </div>
+    </section>
+</div>
+<!-- @END_COMPONENT: HomePage -->
+
+<!-- @COMPONENT: AboutPage -->
+<div id="about" class="page">
+    <!-- Hero Section -->
+    <section class="py-20 bg-background">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h1 class="text-4xl md:text-5xl font-bold text-foreground mb-4">
+                    Nossa História
+                </h1>
+                <p class="text-xl text-muted-foreground">
+                    20 anos de tradição formando condutores responsáveis
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- History Section -->
+    <section class="py-20 bg-muted">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-3xl font-bold text-foreground mb-6">
+                        Uma jornada de excelência desde 2004
+                    </h2>
+                    <p class="text-muted-foreground mb-6 leading-relaxed">
+                        A AutoEscola Plus nasceu da paixão de formar condutores responsáveis e conscientes. 
+                        Desde nossa fundação em 2004, temos o compromisso de oferecer ensino de qualidade, 
+                        aliando tradição e inovação para garantir que nossos alunos estejam preparados 
+                        para os desafios do trânsito moderno.
+                    </p>
+                    <p class="text-muted-foreground mb-6 leading-relaxed">
+                        Nossa metodologia única combina teoria sólida, prática intensiva e acompanhamento 
+                        personalizado, resultando em uma das maiores taxas de aprovação da região. 
+                        Acreditamos que dirigir é muito mais que uma habilidade técnica - é um ato de 
+                        responsabilidade social.
+                    </p>
+                    <p class="text-muted-foreground leading-relaxed">
+                        Ao longo dos anos, formamos mais de 5.000 condutores que hoje transitam com 
+                        segurança e confiança pelas ruas e estradas do país. Cada aprovação é uma 
+                        conquista que compartilhamos com orgulho.
+                    </p>
+                </div>
+                <div>
+                    <!-- Modern driving instructor teaching in car -->
+                    <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600" 
+                         alt="Instructor and student in car lesson" 
+                         class="rounded-xl shadow-lg w-full h-auto">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="py-20 bg-background">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-foreground mb-4">
+                    Nossos Valores
+                </h2>
+                <p class="text-xl text-muted-foreground">
+                    Princípios que nos guiam há mais de duas décadas
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Value 1 -->
+                <div class="card-hover bg-card p-8 rounded-xl shadow-lg border border-border text-center">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-shield-alt text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">Segurança</h3>
+                    <p class="text-muted-foreground">
+                        Priorizamos sempre a segurança de nossos alunos e de todos no trânsito, 
+                        ensinando técnicas defensivas e consciência sobre responsabilidade no volante.
+                    </p>
+                </div>
+                
+                <!-- Value 2 -->
+                <div class="card-hover bg-card p-8 rounded-xl shadow-lg border border-border text-center">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-handshake text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">Compromisso</h3>
+                    <p class="text-muted-foreground">
+                        Dedicação total ao sucesso e aprovação de cada um de nossos alunos, 
+                        oferecendo suporte completo durante toda a jornada de aprendizado.
+                    </p>
+                </div>
+                
+                <!-- Value 3 -->
+                <div class="card-hover bg-card p-8 rounded-xl shadow-lg border border-border text-center">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-lightbulb text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">Inovação</h3>
+                    <p class="text-muted-foreground">
+                        Sempre atualizados com as melhores metodologias de ensino e tecnologias 
+                        educacionais para proporcionar a melhor experiência de aprendizado.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="py-20 bg-muted">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-foreground mb-4">
+                    Nossa Equipe
+                </h2>
+                <p class="text-xl text-muted-foreground">
+                    Profissionais qualificados e dedicados ao seu sucesso
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Team Member 1 -->
+                <div class="card-hover bg-card p-6 rounded-xl shadow-lg border border-border text-center">
+                    <!-- Professional driving instructor portrait -->
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300&h=300" 
+                         alt="Carlos Silva - Diretor e Instrutor" 
+                         class="w-24 h-24 rounded-full mx-auto mb-4 object-cover">
+                    <h3 class="text-xl font-semibold mb-2">Carlos Silva</h3>
+                    <p class="text-primary font-medium mb-2">Diretor e Instrutor</p>
+                    <p class="text-muted-foreground text-sm">
+                        Fundador da AutoEscola Plus, com mais de 25 anos de experiência 
+                        no ensino de condução segura.
+                    </p>
+                </div>
+                
+                <!-- Team Member 2 -->
+                <div class="card-hover bg-card p-6 rounded-xl shadow-lg border border-border text-center">
+                    <!-- Professional female instructor portrait -->
+                    <img src="https://pixabay.com/get/gc5a5fa4ffe99d19de1ef8d3e9e857ab3ba99c08c62f087c0cb7dc6802ecf93a1dfbbcf548317f382b67d67755abeaffd6258c16d218a5ef507d1dea80cc37eaa_1280.jpg" 
+                         alt="Maria Santos - Instrutora Teórica" 
+                         class="w-24 h-24 rounded-full mx-auto mb-4 object-cover">
+                    <h3 class="text-xl font-semibold mb-2">Maria Santos</h3>
+                    <p class="text-primary font-medium mb-2">Instrutora Teórica</p>
+                    <p class="text-muted-foreground text-sm">
+                        Especialista em legislação de trânsito, responsável pela 
+                        preparação teórica dos nossos alunos.
+                    </p>
+                </div>
+                
+                <!-- Team Member 3 -->
+                <div class="card-hover bg-card p-6 rounded-xl shadow-lg border border-border text-center">
+                    <!-- Professional male instructor portrait -->
+                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300&h=300" 
+                         alt="João Oliveira - Instrutor Prático" 
+                         class="w-24 h-24 rounded-full mx-auto mb-4 object-cover">
+                    <h3 class="text-xl font-semibold mb-2">João Oliveira</h3>
+                    <p class="text-primary font-medium mb-2">Instrutor Prático</p>
+                    <p class="text-muted-foreground text-sm">
+                        Instrutor de direção prática com foco em técnicas defensivas 
+                        e desenvolvimento de confiança ao volante.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Facilities Section -->
+    <section class="py-20 bg-background">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-foreground mb-4">
+                    Nossa Estrutura
+                </h2>
+                <p class="text-xl text-muted-foreground">
+                    Conheça nossas instalações modernas e bem equipadas
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Facility 1 -->
+                <div class="card-hover bg-card rounded-xl shadow-lg border border-border overflow-hidden">
+                    <!-- Modern classroom with projector and desks -->
+                    <img src="https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&h=250" 
+                         alt="Modern classroom for driving theory" 
+                         class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="font-semibold text-foreground">Salas de Aula Modernas</h3>
+                    </div>
+                </div>
+                
+                <!-- Facility 2 -->
+                <div class="card-hover bg-card rounded-xl shadow-lg border border-border overflow-hidden">
+                    <!-- Modern car fleet parked -->
+                    <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&h=250" 
+                         alt="Modern car fleet for driving lessons" 
+                         class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="font-semibold text-foreground">Frota Moderna e Segura</h3>
+                    </div>
+                </div>
+                
+                <!-- Facility 3 -->
+                <div class="card-hover bg-card rounded-xl shadow-lg border border-border overflow-hidden">
+                    <!-- Comfortable waiting area with chairs -->
+                    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&h=250" 
+                         alt="Comfortable waiting area" 
+                         class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="font-semibold text-foreground">Área de Espera Confortável</h3>
+                    </div>
+                </div>
+                
+                <!-- Facility 4 -->
+                <div class="card-hover bg-card rounded-xl shadow-lg border border-border overflow-hidden">
+                    <!-- Driving simulation equipment -->
+                    <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&h=250" 
+                         alt="Advanced driving simulators" 
+                         class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="font-semibold text-foreground">Simuladores Avançados</h3>
+                    </div>
+                </div>
+                
+                <!-- Facility 5 -->
+                <div class="card-hover bg-card rounded-xl shadow-lg border border-border overflow-hidden">
+                    <!-- Welcoming reception area -->
+                    <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&h=250" 
+                         alt="Welcoming reception area" 
+                         class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="font-semibold text-foreground">Recepção Acolhedora</h3>
+                    </div>
+                </div>
+                
+                <!-- Facility 6 -->
+                <div class="card-hover bg-card rounded-xl shadow-lg border border-border overflow-hidden">
+                    <!-- Training track with cones -->
+                    <img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&h=250" 
+                         alt="Training track for driving practice" 
+                         class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="font-semibold text-foreground">Pista de Treinamento</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 stats-gradient">
+        <div class="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
+                Faça parte da nossa história
+            </h2>
+            <p class="text-xl text-white/90 mb-8">
+                Junte-se aos milhares de condutores que conquistaram sua habilitação conosco
+            </p>
+            <button class="bg-white text-primary px-8 py-4 rounded-lg text-lg font-semibold shadow-lg hover:bg-gray-100 transition-colors">
+                Comece Sua Jornada
+            </button>
+        </div>
+    </section>
+</div>
+<!-- @END_COMPONENT: AboutPage -->
+
+<!-- @COMPONENT: ServicesPage -->
+<div id="services" class="page">
+    <!-- Hero Section -->
+    <section class="py-20 bg-background">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h1 class="text-4xl md:text-5xl font-bold text-foreground mb-4">
+                    Nossos Serviços
+                </h1>
+                <p class="text-xl text-muted-foreground">
+                    Cursos completos para todas as categorias de habilitação
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- License Categories Section -->
+    <section class="py-20 bg-muted">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Category A -->
+                <div class="card-hover bg-card p-8 rounded-xl shadow-lg border border-border">
+                    <div class="flex items-center mb-6">
+                        <div class="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mr-4">
+                            <i class="fas fa-motorcycle text-primary text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold text-foreground">Categoria A</h3>
+                            <p class="text-muted-foreground">Motos e Ciclomotores</p>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-foreground mb-3">O que inclui:</h4>
+                        <ul class="space-y-2 text-muted-foreground">
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-accent mr-2"></i>
+                                45 horas/aula teóricas
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-accent mr-2"></i>
+                                Simulador de direção
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-accent mr-2"></i>
+                                20 horas/aula práticas
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-accent mr-2"></i>
+                                Exame médico e psicotécnico
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="border-t border-border pt-6">
+                        <div class="text-center mb-4">
+                            <span class="text-3xl font-bold text-primary">R$ 1.299</span>
+                            <span class="text-muted-foreground"> em até 12x</span>
+                        </div>
+                        <button class="btn-primary w-full py-3 rounded-lg font-semibold">
+                            Matricule-se
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Category B -->
+                <div class="card-hover bg-card p-8 rounded-xl shadow-lg border border-border">
+                    <div class="flex items-center mb-6">
+                        <div class="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mr-4">
+                            <i class="fas fa-car text-primary text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold text-foreground">Categoria B</h3>
+                            <p class="text-muted-foreground">Carros e Utilitários</p>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-foreground mb-3">O que inclui:</h4>
+                        <ul class="space-y-2 text-muted-foreground">
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-accent mr-2"></i>
+                                45 horas/aula teóricas
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-accent mr-2"></i>
+                                Simulador de direção
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-accent mr-2"></i>
+                                25 horas/aula práticas
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-accent mr-2"></i>
+                                Exame psicotécnico
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="border-t border-border pt-6">
+                        <div class="text-center mb-4">
+                            <span class="text-3xl font-bold text-primary">R$ 1.799</span>
+                            <span class="text-muted-foreground"> em até 12x</span>
+                        </div>
+                        <button class="btn-primary w-full py-3 rounded-lg font-semibold">
+                            Matricule-se
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Category C -->
+                <div class="card-hover bg-card p-8 rounded-xl shadow-lg border border-border">
+                    <div class="flex items-center mb-6">
+                        <div class="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mr-4">
+                            <i class="fas fa-truck text-primary text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold text-foreground">Categoria C</h3>
+                            <p class="text-muted-foreground">Caminhões</p>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-foreground mb-3">O que inclui:</h4>
+                        <ul class="space-y-2 text-muted-foreground">
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-accent mr-2"></i>
+                                30 horas/aula teóricas
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-accent mr-2"></i>
+                                20 horas/aula práticas
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-accent mr-2"></i>
+                                Curso de transporte de cargas
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-accent mr-2"></i>
+                                Simulador especializado
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="border-t border-border pt-6">
+                        <div class="text-center mb-4">
+                            <span class="text-3xl font-bold text-primary">R$ 2.299</span>
+                            <span class="text-muted-foreground"> em até 12x</span>
+                        </div>
+                        <button class="btn-primary w-full py-3 rounded-lg font-semibold">
+                            Matricule-se
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Category D -->
+                <div class="card-hover bg-card p-8 rounded-xl shadow-lg border border-border">
+                    <div class="flex items-center mb-6">
+                        <div class="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mr-4">
+                            <i class="fas fa-bus text-primary text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold text-foreground">Categoria D</h3>
+                            <p class="text-muted-foreground">Ônibus</p>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-foreground mb-3">O que inclui:</h4>
+                        <ul class="space-y-2 text-muted-foreground">
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-accent mr-2"></i>
+                                30 horas/aula teóricas
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-accent mr-2"></i>
+                                25 horas/aula práticas
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-accent mr-2"></i>
+                                Curso de transporte de passageiros
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-accent mr-2"></i>
+                                Primeiros socorros
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="border-t border-border pt-6">
+                        <div class="text-center mb-4">
+                            <span class="text-3xl font-bold text-primary">R$ 2.599</span>
+                            <span class="text-muted-foreground"> em até 12x</span>
+                        </div>
+                        <button class="btn-primary w-full py-3 rounded-lg font-semibold">
+                            Matricule-se
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Additional Services Section -->
+    <section class="py-20 bg-background">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-foreground mb-4">
+                    Serviços Adicionais
+                </h2>
+                <p class="text-xl text-muted-foreground">
+                    Oferecemos também outros serviços para complementar sua formação
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="card-hover bg-card p-6 rounded-xl shadow-lg border border-border text-center">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-redo-alt text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">Reciclagem CNH</h3>
+                    <p class="text-muted-foreground mb-4">
+                        Curso obrigatório para renovação de habilitação após suspensão ou cassação.
+                    </p>
+                    <div class="text-2xl font-bold text-primary mb-4">R$ 299</div>
+                    <button class="text-primary font-medium hover:underline">
+                        Saiba Mais
+                    </button>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="card-hover bg-card p-6 rounded-xl shadow-lg border border-border text-center">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-shield-alt text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">Direção Defensiva</h3>
+                    <p class="text-muted-foreground mb-4">
+                        Curso especializado em técnicas de direção segura e prevenção de acidentes.
+                    </p>
+                    <div class="text-2xl font-bold text-primary mb-4">R$ 199</div>
+                    <button class="text-primary font-medium hover:underline">
+                        Saiba Mais
+                    </button>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="card-hover bg-card p-6 rounded-xl shadow-lg border border-border text-center">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-heart text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">Primeiros Socorros</h3>
+                    <p class="text-muted-foreground mb-4">
+                        Aprenda a prestar socorro em situações de emergência no trânsito.
+                    </p>
+                    <div class="text-2xl font-bold text-primary mb-4">R$ 149</div>
+                    <button class="text-primary font-medium hover:underline">
+                        Saiba Mais
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="py-20 bg-muted">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-foreground mb-4">
+                    Como Funciona
+                </h2>
+                <p class="text-xl text-muted-foreground">
+                    Processo simples e transparente para obter sua habilitação
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-4 gap-8">
+                <!-- Step 1 -->
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-6">
+                        <span class="text-white text-xl font-bold">1</span>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-3">Matrícula</h3>
+                    <p class="text-muted-foreground">
+                        Venha até nossa unidade ou entre em contato para se matricular
+                    </p>
+                </div>
+                
+                <!-- Step 2 -->
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-6">
+                        <span class="text-white text-xl font-bold">2</span>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-3">Exames</h3>
+                    <p class="text-muted-foreground">
+                        Realizamos os exames médico e psicotécnico necessários
+                    </p>
+                </div>
+                
+                <!-- Step 3 -->
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-6">
+                        <span class="text-white text-xl font-bold">3</span>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-3">Aulas</h3>
+                    <p class="text-muted-foreground">
+                        Aulas teóricas e práticas com nossos instrutores qualificados
+                    </p>
+                </div>
+                
+                <!-- Step 4 -->
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-6">
+                        <span class="text-white text-xl font-bold">4</span>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-3">Aprovação</h3>
+                    <p class="text-muted-foreground">
+                        Prova final no DETRAN e retirada da sua habilitação
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 stats-gradient">
+        <div class="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
+                Pronto para começar?
+            </h2>
+            <p class="text-xl text-white/90 mb-8">
+                Escolha o curso ideal para você e comece sua jornada hoje mesmo
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button class="bg-white text-primary px-8 py-4 rounded-lg text-lg font-semibold shadow-lg hover:bg-gray-100 transition-colors">
+                    Matricule-se Agora
+                </button>
+                <button class="btn-whatsapp px-8 py-4 rounded-lg text-lg font-semibold shadow-lg">
+                    <i class="fab fa-whatsapp mr-2"></i>
+                    Fale no WhatsApp
+                </button>
+            </div>
+        </div>
+    </section>
+</div>
+<!-- @END_COMPONENT: ServicesPage -->
+
+<!-- @COMPONENT: TestimonialsPage -->
+<div id="testimonials" class="page">
+    <!-- Hero Section -->
+    <section class="py-20 bg-background">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h1 class="text-4xl md:text-5xl font-bold text-foreground mb-4">
+                    Depoimentos
+                </h1>
+                <p class="text-xl text-muted-foreground">
+                    Veja o que nossos alunos dizem sobre a AutoEscola Plus
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Testimonial Carousel -->
+    <section class="py-20 bg-muted">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="carousel-container">
+                <!-- Testimonial 1 -->
+                <div class="carousel-slide active">
+                    <div class="bg-card p-8 rounded-xl shadow-lg border border-border text-center">
+                        <div class="flex justify-center mb-4">
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                        </div>
+                        <blockquote class="text-lg text-muted-foreground mb-6 italic">
+                            "Excelente autoescola! Os instrutores são muito pacientes e didáticos. 
+                            Consegui passar de primeira tanto na prova teórica quanto na prática. 
+                            Recomendo para todos que querem tirar a carteira com tranquilidade."
+                        </blockquote>
+                        <!-- Happy female student portrait -->
+                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=100&h=100" 
+                             alt="Ana Carolina Silva" 
+                             class="w-16 h-16 rounded-full mx-auto mb-4 object-cover">
+                        <h3 class="font-semibold text-foreground">Ana Carolina Silva</h3>
+                        <p class="text-muted-foreground text-sm">Categoria B - Dezembro 2024</p>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="carousel-slide">
+                    <div class="bg-card p-8 rounded-xl shadow-lg border border-border text-center">
+                        <div class="flex justify-center mb-4">
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                        </div>
+                        <blockquote class="text-lg text-muted-foreground mb-6 italic">
+                            "A metodologia da AutoEscola Plus é realmente diferenciada. 
+                            Desde a primeira aula me senti seguro e confiante. 
+                            Hoje dirijo com total tranquilidade graças aos ensinamentos recebidos."
+                        </blockquote>
+                        <!-- Happy male student portrait -->
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=100&h=100" 
+                             alt="Roberto Mendes" 
+                             class="w-16 h-16 rounded-full mx-auto mb-4 object-cover">
+                        <h3 class="font-semibold text-foreground">Roberto Mendes</h3>
+                        <p class="text-muted-foreground text-sm">Categoria B - Novembro 2024</p>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="carousel-slide">
+                    <div class="bg-card p-8 rounded-xl shadow-lg border border-border text-center">
+                        <div class="flex justify-center mb-4">
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                        </div>
+                        <blockquote class="text-lg text-muted-foreground mb-6 italic">
+                            "Estrutura impecável e profissionais altamente qualificados. 
+                            A taxa de aprovação realmente condiz com a qualidade do ensino. 
+                            Indicaria para qualquer pessoa!"
+                        </blockquote>
+                        <!-- Happy female student portrait -->
+                        <img src="https://pixabay.com/get/gf9c3b575acc32fc114b88e286a3e73af320483f95d9b9d0a392e0c4ea6b7a3063105677a5a31b3dcc027870bb44bed68123a8cb9e3f08d1f047f42981eb08612_1280.jpg" 
+                             alt="Marina Costa" 
+                             class="w-16 h-16 rounded-full mx-auto mb-4 object-cover">
+                        <h3 class="font-semibold text-foreground">Marina Costa</h3>
+                        <p class="text-muted-foreground text-sm">Categoria A - Outubro 2024</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Carousel Navigation -->
+            <div class="flex justify-center mt-8 space-x-4">
+                <button class="w-12 h-12 bg-primary rounded-full text-white hover:bg-primary/80 transition-colors" id="prev-testimonial">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="w-12 h-12 bg-primary rounded-full text-white hover:bg-primary/80 transition-colors" id="next-testimonial">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- More Testimonials -->
+    <section class="py-20 bg-background">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-foreground mb-4">
+                    Mais Depoimentos
+                </h2>
+                <p class="text-xl text-muted-foreground">
+                    Histórias reais de sucesso dos nossos alunos
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Testimonial Card 1 -->
+                <div class="bg-card p-6 rounded-xl shadow-lg border border-border">
+                    <div class="flex items-center mb-4">
+                        <!-- Student portrait -->
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=60&h=60" 
+                             alt="Carlos Eduardo" 
+                             class="w-12 h-12 rounded-full mr-3 object-cover">
+                        <div>
+                            <h4 class="font-semibold text-foreground">Carlos Eduardo</h4>
+                            <p class="text-sm text-muted-foreground">Categoria C</p>
+                        </div>
+                    </div>
+                    <div class="flex mb-3">
+                        <i class="fas fa-star text-yellow-400 text-sm"></i>
+                        <i class="fas fa-star text-yellow-400 text-sm"></i>
+                        <i class="fas fa-star text-yellow-400 text-sm"></i>
+                        <i class="fas fa-star text-yellow-400 text-sm"></i>
+                        <i class="fas fa-star text-yellow-400 text-sm"></i>
+                    </div>
+                    <p class="text-muted-foreground text-sm">
+                        "Profissionais competentes e curso bem estruturado. 
+                        Consegui minha habilitação categoria C sem complicações."
+                    </p>
+                    <p class="text-xs text-muted-foreground mt-2">Janeiro 2024</p>
+                </div>
+                
+                <!-- Testimonial Card 2 -->
+                <div class="bg-card p-6 rounded-xl shadow-lg border border-border">
+                    <div class="flex items-center mb-4">
+                        <!-- Student portrait -->
+                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=60&h=60" 
+                             alt="Patricia Lima" 
+                             class="w-12 h-12 rounded-full mr-3 object-cover">
+                        <div>
+                            <h4 class="font-semibold text-foreground">Patricia Lima</h4>
+                            <p class="text-sm text-muted-foreground">Categoria B</p>
+                        </div>
+                    </div>
+                    <div class="flex mb-3">
+                        <i class="fas fa-star text-yellow-400 text-sm"></i>
+                        <i class="fas fa-star text-yellow-400 text-sm"></i>
+                        <i class="fas fa-star text-yellow-400 text-sm"></i>
+                        <i class="fas fa-star text-yellow-400 text-sm"></i>
+                        <i class="fas fa-star text-yellow-400 text-sm"></i>
+                    </div>
+                    <p class="text-muted-foreground text-sm">
+                        "Ambiente acolhedor e instrutores muito atenciosos. 
+                        Superaram minhas expectativas em todos os aspectos."
+                    </p>
+                    <p class="text-xs text-muted-foreground mt-2">Dezembro 2023</p>
+                </div>
+                
+                <!-- Testimonial Card 3 -->
+                <div class="bg-card p-6 rounded-xl shadow-lg border border-border">
+                    <div class="flex items-center mb-4">
+                        <!-- Student portrait -->
+                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=60&h=60" 
+                             alt="Felipe Santos" 
+                             class="w-12 h-12 rounded-full mr-3 object-cover">
+                        <div>
+                            <h4 class="font-semibold text-foreground">Felipe Santos</h4>
+                            <p class="text-sm text-muted-foreground">Categoria A</p>
+                        </div>
+                    </div>
+                    <div class="flex mb-3">
+                        <i class="fas fa-star text-yellow-400 text-sm"></i>
+                        <i class="fas fa-star text-yellow-400 text-sm"></i>
+                        <i class="fas fa-star text-yellow-400 text-sm"></i>
+                        <i class="fas fa-star text-yellow-400 text-sm"></i>
+                        <i class="fas fa-star text-yellow-400 text-sm"></i>
+                    </div>
+                    <p class="text-muted-foreground text-sm">
+                        "Curso de moto excelente! Aprendi desde o básico até 
+                        técnicas avançadas de pilotagem. Muito satisfeito!"
+                    </p>
+                    <p class="text-xs text-muted-foreground mt-2">Novembro 2023</p>
+                </div>
+                
+                <!-- Testimonial Card 4 -->
+                <div class="bg-card p-6 rounded-xl shadow-lg border border-border">
+                    <div class="flex items-center mb-4">
+                        <!-- Student portrait -->
+                        <img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=60&h=60" 
+                             alt="Lucia Ferreira" 
+                             class="w-12 h-12 rounded-full mr-3 object-cover">
+                        <div>
+                            <h4 class="font-semibold text-foreground">Lucia Ferreira</h4>
+                            <p class="text-sm text-muted-foreground">Categoria B</p>
+                        </div>
+                    </div>
+                    <div class="flex mb-3">
+                        <i class="fas fa-star text-yellow-400 text-sm"></i>
+                        <i class="fas fa-star text-yellow-400 text-sm"></i>
+                        <i class="fas fa-star text-yellow-400 text-sm"></i>
+                        <i class="fas fa-star text-yellow-400 text-sm"></i>
+                        <i class="fas fa-star text-yellow-400 text-sm"></i>
+                    </div>
+                    <p class="text-muted-foreground text-sm">
+                        "Depois de anos com medo de dirigir, encontrei na AutoEscola Plus 
+                        a confiança que precisava. Obrigada pela paciência!"
+                    </p>
+                    <p class="text-xs text-muted-foreground mt-2">Outubro 2023</p>
+                </div>
+                
+                <!-- Testimonial Card 5 -->
+                <div class="bg-card p-6 rounded-xl shadow-lg border border-border">
+                    <div class="flex items-center mb-4">
+                        <!-- Student portrait -->
+                        <img src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=60&h=60" 
+                             alt="Marcos Oliveira" 
+                             class="w-12 h-12 rounded-full mr-3 object-cover">
+                        <div>
+                            <h4 class="font-semibold text-foreground">Marcos Oliveira</h4>
+                            <p class="text-sm text-muted-foreground">Categoria D</p>
+                        </div>
+                    </div>
+                    <div class="flex mb-3">
+                        <i class="fas fa-star text-yellow-400 text-sm"></i>
+                        <i class="fas fa-star text-yellow-400 text-sm"></i>
+                        <i class="fas fa-star text-yellow-400 text-sm"></i>
+                        <i class="fas fa-star text-yellow-400 text-sm"></i>
+                        <i class="fas fa-star text-yellow-400 text-sm"></i>
+                    </div>
+                    <p class="text-muted-foreground text-sm">
+                        "Categoria D foi um desafio, mas com o suporte da equipe 
+                        consegui passar de primeira. Escola nota 10!"
+                    </p>
+                    <p class="text-xs text-muted-foreground mt-2">Setembro 2023</p>
+                </div>
+                
+                <!-- Testimonial Card 6 -->
+                <div class="bg-card p-6 rounded-xl shadow-lg border border-border">
+                    <div class="flex items-center mb-4">
+                        <!-- Student portrait -->
+                        <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=60&h=60" 
+                             alt="Amanda Costa" 
+                             class="w-12 h-12 rounded-full mr-3 object-cover">
+                        <div>
+                            <h4 class="font-semibold text-foreground">Amanda Costa</h4>
+                            <p class="text-sm text-muted-foreground">Categoria B</p>
+                        </div>
+                    </div>
+                    <div class="flex mb-3">
+                        <i class="fas fa-star text-yellow-400 text-sm"></i>
+                        <i class="fas fa-star text-yellow-400 text-sm"></i>
+                        <i class="fas fa-star text-yellow-400 text-sm"></i>
+                        <i class="fas fa-star text-yellow-400 text-sm"></i>
+                        <i class="fas fa-star text-yellow-400 text-sm"></i>
+                    </div>
+                    <p class="text-muted-foreground text-sm">
+                        "Recomendo para todos! Atendimento impecável desde a matrícula 
+                        até a aprovação. Escola referência na região!"
+                    </p>
+                    <p class="text-xs text-muted-foreground mt-2">Agosto 2023</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Stories Statistics -->
+    <section class="py-20 bg-muted">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-foreground mb-4">
+                    Histórias de Sucesso
+                </h2>
+                <p class="text-xl text-muted-foreground">
+                    Números que comprovam nossa excelência
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-4 gap-8 text-center">
+                <div class="p-6">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-smile text-primary text-2xl"></i>
+                    </div>
+                    <div class="number-counter">98%</div>
+                    <p class="text-muted-foreground font-medium">Satisfação dos Alunos</p>
+                </div>
+                
+                <div class="p-6">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-comments text-primary text-2xl"></i>
+                    </div>
+                    <div class="number-counter">5000+</div>
+                    <p class="text-muted-foreground font-medium">Depoimentos Positivos</p>
+                </div>
+                
+                <div class="p-6">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-star text-primary text-2xl"></i>
+                    </div>
+                    <div class="number-counter">4.9</div>
+                    <p class="text-muted-foreground font-medium">Avaliação Média</p>
+                </div>
+                
+                <div class="p-6">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-trophy text-primary text-2xl"></i>
+                    </div>
+                    <div class="number-counter">95%</div>
+                    <p class="text-muted-foreground font-medium">Taxa de Aprovação</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Testimonials -->
+    <section class="py-20 bg-background">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-foreground mb-4">
+                    Depoimentos em Vídeo
+                </h2>
+                <p class="text-xl text-muted-foreground">
+                    Conheça as histórias completas dos nossos alunos
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Video 1 -->
+                <div class="card-hover bg-card rounded-xl shadow-lg border border-border overflow-hidden">
+                    <!-- Video thumbnail placeholder -->
+                    <div class="relative bg-gray-200 h-48 flex items-center justify-center">
+                        <i class="fas fa-play-circle text-primary text-4xl"></i>
+                        <div class="absolute bottom-2 left-2 bg-black/70 text-white px-2 py-1 rounded text-xs">
+                            02:15
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-foreground">Amanda Costa - Categoria B</h3>
+                        <p class="text-muted-foreground text-sm">
+                            "Uma experiência incrível do início ao fim..."
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Video 2 -->
+                <div class="card-hover bg-card rounded-xl shadow-lg border border-border overflow-hidden">
+                    <!-- Video thumbnail placeholder -->
+                    <div class="relative bg-gray-200 h-48 flex items-center justify-center">
+                        <i class="fas fa-play-circle text-primary text-4xl"></i>
+                        <div class="absolute bottom-2 left-2 bg-black/70 text-white px-2 py-1 rounded text-xs">
+                            03:42
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-foreground">Carlos Mendes - Categoria C</h3>
+                        <p class="text-muted-foreground text-sm">
+                            "Profissionais excepcionais e método único..."
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Video 3 -->
+                <div class="card-hover bg-card rounded-xl shadow-lg border border-border overflow-hidden">
+                    <!-- Video thumbnail placeholder -->
+                    <div class="relative bg-gray-200 h-48 flex items-center justify-center">
+                        <i class="fas fa-play-circle text-primary text-4xl"></i>
+                        <div class="absolute bottom-2 left-2 bg-black/70 text-white px-2 py-1 rounded text-xs">
+                            01:58
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-foreground">Marina Silva - Categoria A</h3>
+                        <p class="text-muted-foreground text-sm">
+                            "Realizei meu sonho de pilotar com segurança..."
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Video Navigation -->
+            <div class="flex justify-center mt-8 space-x-4">
+                <button class="w-12 h-12 bg-primary rounded-full text-white hover:bg-primary/80 transition-colors">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="w-12 h-12 bg-primary rounded-full text-white hover:bg-primary/80 transition-colors">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 stats-gradient">
+        <div class="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
+                Seja o próximo a conquistar sua habilitação
+            </h2>
+            <p class="text-xl text-white/90 mb-8">
+                Junte-se aos milhares de alunos satisfeitos que escolheram a AutoEscola Plus
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button class="bg-white text-primary px-8 py-4 rounded-lg text-lg font-semibold shadow-lg hover:bg-gray-100 transition-colors">
+                    Comece Agora
+                </button>
+                <button class="btn-whatsapp px-8 py-4 rounded-lg text-lg font-semibold shadow-lg">
+                    <i class="fab fa-whatsapp mr-2"></i>
+                    Fale Conosco
+                </button>
+            </div>
+        </div>
+    </section>
+</div>
+<!-- @END_COMPONENT: TestimonialsPage -->
+
+<!-- @COMPONENT: ContactPage -->
+<div id="contact" class="page">
+    <!-- Hero Section -->
+    <section class="py-20 bg-background">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h1 class="text-4xl md:text-5xl font-bold text-foreground mb-4">
+                    Entre em Contato
+                </h1>
+                <p class="text-xl text-muted-foreground">
+                    Estamos prontos para ajudar você a conquistar sua habilitação
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form and Info -->
+    <section class="py-20 bg-muted">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12">
+                <!-- Contact Form -->
+                <div class="bg-card p-8 rounded-xl shadow-lg border border-border">
+                    <h2 class="text-2xl font-bold text-foreground mb-6">Envie sua Mensagem</h2>
+                    <form class="space-y-6" data-implementation="Contact form submission logic needed">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-foreground mb-2">
+                                Nome Completo *
+                            </label>
+                            <input 
+                                type="text" 
+                                id="name" 
+                                name="name" 
+                                required
+                                class="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-background text-foreground"
+                                placeholder="Seu nome completo"
+                                data-mock="true">
+                        </div>
+                        
+                        <div>
+                            <label for="phone" class="block text-sm font-medium text-foreground mb-2">
+                                Telefone/WhatsApp *
+                            </label>
+                            <input 
+                                type="tel" 
+                                id="phone" 
+                                name="phone" 
+                                required
+                                class="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-background text-foreground"
+                                placeholder="(11) 9 9999-9999"
+                                data-mock="true">
+                        </div>
+                        
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-foreground mb-2">
+                                E-mail *
+                            </label>
+                            <input 
+                                type="email" 
+                                id="email" 
+                                name="email" 
+                                required
+                                class="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-background text-foreground"
+                                placeholder="seu.email@exemplo.com"
+                                data-mock="true">
+                        </div>
+                        
+                        <div>
+                            <label for="category" class="block text-sm font-medium text-foreground mb-2">
+                                Categoria de Interesse
+                            </label>
+                            <select 
+                                id="category" 
+                                name="category"
+                                class="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-background text-foreground"
+                                data-mock="true">
+                                <option value="">Selecione uma categoria</option>
+                                <option value="a">Categoria A - Motos</option>
+                                <option value="b">Categoria B - Carros</option>
+                                <option value="c">Categoria C - Caminhões</option>
+                                <option value="d">Categoria D - Ônibus</option>
+                                <option value="other">Outros serviços</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-foreground mb-2">
+                                Mensagem
+                            </label>
+                            <textarea 
+                                id="message" 
+                                name="message" 
+                                rows="4" 
+                                maxlength="500"
+                                class="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-background text-foreground resize-none"
+                                placeholder="Conte-nos como podemos ajudar você..."
+                                data-mock="true"></textarea>
+                            <p class="text-xs text-muted-foreground mt-1">Máximo de 500 caracteres</p>
+                        </div>
+                        
+                        <button 
+                            type="submit" 
+                            class="btn-primary w-full py-3 rounded-lg font-semibold"
+                            data-event="click:handleSubmit">
+                            <i class="fas fa-paper-plane mr-2"></i>
+                            Enviar Mensagem
+                        </button>
+                    </form>
+                </div>
+                
+                <!-- Contact Information -->
+                <div class="space-y-8">
+                    <div class="bg-card p-8 rounded-xl shadow-lg border border-border">
+                        <h2 class="text-2xl font-bold text-foreground mb-6">Informações de Contato</h2>
+                        
+                        <div class="space-y-6">
+                            <!-- Address -->
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                                    <i class="fas fa-map-marker-alt text-primary"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold text-foreground mb-1">Endereço</h3>
+                                    <p class="text-muted-foreground">
+                                        Av. Principal, 123<br>
+                                        São Paulo, SP - CEP: 01000-000
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <!-- Phone -->
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                                    <i class="fas fa-phone text-primary"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold text-foreground mb-1">Telefones</h3>
+                                    <p class="text-muted-foreground">
+                                        <a href="tel:+5511999999999" class="hover:text-primary transition-colors">
+                                            (11) 9 9999-9999
+                                        </a>
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <!-- Email -->
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                                    <i class="fas fa-envelope text-primary"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold text-foreground mb-1">E-mail</h3>
+                                    <p class="text-muted-foreground">
+                                        <a href="mailto:contato@autoescolaplus.com.br" class="hover:text-primary transition-colors">
+                                            contato@autoescolaplus.com.br
+                                        </a>
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <!-- Business Hours -->
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                                    <i class="fas fa-clock text-primary"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold text-foreground mb-1">Horário de Funcionamento</h3>
+                                    <div class="text-muted-foreground space-y-1">
+                                        <p>Segunda a Sexta: 8h às 18h</p>
+                                        <p>Sábado: 8h às 14h</p>
+                                        <p>Domingo: Fechado</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Action Buttons -->
+                        <div class="flex flex-col sm:flex-row gap-4 mt-8">
+                            <button class="btn-whatsapp flex-1 py-3 rounded-lg font-semibold text-center">
+                                <i class="fab fa-whatsapp mr-2"></i>
+                                Falar no WhatsApp
+                            </button>
+                            <button class="btn-primary flex-1 py-3 rounded-lg font-semibold text-center">
+                                <i class="fas fa-phone mr-2"></i>
+                                Ligar Agora
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location Section -->
+    <section class="py-20 bg-background">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-foreground mb-4">
+                    Nossa Localização
+                </h2>
+                <p class="text-xl text-muted-foreground">
+                    Visite nossa unidade e conheça nossa estrutura
+                </p>
+            </div>
+            
+            <!-- Google Maps Placeholder -->
+            <div class="bg-gray-200 h-96 rounded-xl flex items-center justify-center mb-6">
+                <div class="text-center">
+                    <i class="fas fa-map-marked-alt text-4xl text-muted-foreground mb-4"></i>
+                    <p class="text-muted-foreground">
+                        <!-- Google Maps would be integrated here -->
+                        Mapa do Google Maps<br>
+                        <span class="text-sm">Av. Principal, 123 - São Paulo, SP</span>
+                    </p>
+                </div>
+            </div>
+            
+            <div class="text-center">
+                <div class="bg-card p-6 rounded-xl shadow-lg border border-border inline-block">
+                    <div class="flex items-center justify-center space-x-6">
+                        <div>
+                            <h3 class="font-semibold text-foreground mb-1">Endereço Completo</h3>
+                            <p class="text-muted-foreground">Av. Principal, 123 - São Paulo, SP</p>
+                        </div>
+                        <button class="btn-primary px-6 py-2 rounded-lg font-semibold">
+                            <i class="fas fa-external-link-alt mr-2"></i>
+                            Ver no Maps
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-20 bg-muted">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-foreground mb-4">
+                    Perguntas Frequentes
+                </h2>
+                <p class="text-xl text-muted-foreground">
+                    Tire suas dúvidas sobre nossos cursos e serviços
+                </p>
+            </div>
+            
+            <div class="space-y-4">
+                <!-- FAQ Item 1 -->
+                <div class="bg-card rounded-xl shadow-lg border border-border">
+                    <button class="w-full p-6 text-left flex justify-between items-center accordion-trigger" data-target="faq1">
+                        <h3 class="font-semibold text-foreground">
+                            Qual é o tempo médio para conseguir a habilitação?
+                        </h3>
+                        <i class="fas fa-chevron-down text-muted-foreground transition-transform"></i>
+                    </button>
+                    <div id="faq1" class="accordion-content px-6 pb-6">
+                        <p class="text-muted-foreground">
+                            Em média, o processo completo leva de 2 a 4 meses, dependendo da categoria 
+                            escolhida e da disponibilidade do aluno para as aulas práticas. Nossa equipe 
+                            trabalha para agilizar todo o processo respeitando os prazos legais do DETRAN.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 2 -->
+                <div class="bg-card rounded-xl shadow-lg border border-border">
+                    <button class="w-full p-6 text-left flex justify-between items-center accordion-trigger" data-target="faq2">
+                        <h3 class="font-semibold text-foreground">
+                            Posso parcelar o pagamento do curso?
+                        </h3>
+                        <i class="fas fa-chevron-down text-muted-foreground transition-transform"></i>
+                    </button>
+                    <div id="faq2" class="accordion-content px-6 pb-6">
+                        <p class="text-muted-foreground">
+                            Sim! Oferecemos parcelamento em até 12x no cartão de crédito. Também temos 
+                            condições especiais para pagamento à vista. Entre em contato conosco para 
+                            conhecer todas as opções de pagamento disponíveis.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 3 -->
+                <div class="bg-card rounded-xl shadow-lg border border-border">
+                    <button class="w-full p-6 text-left flex justify-between items-center accordion-trigger" data-target="faq3">
+                        <h3 class="font-semibold text-foreground">
+                            Qual a taxa de aprovação da autoescola?
+                        </h3>
+                        <i class="fas fa-chevron-down text-muted-foreground transition-transform"></i>
+                    </button>
+                    <div id="faq3" class="accordion-content px-6 pb-6">
+                        <p class="text-muted-foreground">
+                            Nossa taxa de aprovação é de 95%, uma das maiores da região. Esse resultado 
+                            é fruto do nosso método exclusivo de ensino, instrutores qualificados e 
+                            acompanhamento personalizado de cada aluno durante todo o processo.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 4 -->
+                <div class="bg-card rounded-xl shadow-lg border border-border">
+                    <button class="w-full p-6 text-left flex justify-between items-center accordion-trigger" data-target="faq4">
+                        <h3 class="font-semibold text-foreground">
+                            Vocês fazem busca e entrega na minha residência?
+                        </h3>
+                        <i class="fas fa-chevron-down text-muted-foreground transition-transform"></i>
+                    </button>
+                    <div id="faq4" class="accordion-content px-6 pb-6">
+                        <p class="text-muted-foreground">
+                            Sim, oferecemos o serviço de busca e entrega em algumas regiões da cidade. 
+                            Este serviço está incluído no valor do curso para determinadas localidades. 
+                            Consulte nossa equipe para verificar se sua região está contemplada.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 stats-gradient">
+        <div class="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
+                Não perca mais tempo!
+            </h2>
+            <p class="text-xl text-white/90 mb-8">
+                Entre em contato agora e dê o primeiro passo para conquistar sua independência
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button class="bg-white text-primary px-8 py-4 rounded-lg text-lg font-semibold shadow-lg hover:bg-gray-100 transition-colors">
+                    Matricule-se Agora
+                </button>
+                <button class="btn-whatsapp px-8 py-4 rounded-lg text-lg font-semibold shadow-lg">
+                    <i class="fab fa-whatsapp mr-2"></i>
+                    Fale no WhatsApp
+                </button>
+            </div>
+        </div>
+    </section>
+</div>
+<!-- @END_COMPONENT: ContactPage -->
+
+<!-- @COMPONENT: Footer -->
+<footer class="bg-card border-t border-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="grid md:grid-cols-4 gap-8">
+            <!-- Company Info -->
+            <div class="md:col-span-1">
+                <div class="flex items-center mb-4">
+                    <i class="fas fa-car text-primary text-2xl mr-3"></i>
+                    <span class="text-xl font-bold text-foreground">AutoEscola Plus</span>
+                </div>
+                <p class="text-muted-foreground text-sm">
+                    Há mais de 20 anos formando condutores responsáveis com metodologia 
+                    comprovada e 95% de aprovação. Sua habilitação começa aqui!
+                </p>
+            </div>
+            
+            <!-- Navigation -->
+            <div>
+                <h3 class="font-semibold text-foreground mb-4">Navegação</h3>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#" class="text-muted-foreground hover:text-primary transition-colors" data-page="home">Início</a></li>
+                    <li><a href="#" class="text-muted-foreground hover:text-primary transition-colors" data-page="about">Sobre</a></li>
+                    <li><a href="#" class="text-muted-foreground hover:text-primary transition-colors" data-page="services">Serviços</a></li>
+                    <li><a href="#" class="text-muted-foreground hover:text-primary transition-colors" data-page="testimonials">Depoimentos</a></li>
+                    <li><a href="#" class="text-muted-foreground hover:text-primary transition-colors" data-page="contact">Contato</a></li>
+                </ul>
+            </div>
+            
+            <!-- Contact Info -->
+            <div>
+                <h3 class="font-semibold text-foreground mb-4">Contato</h3>
+                <ul class="space-y-2 text-sm text-muted-foreground">
+                    <li class="flex items-center">
+                        <i class="fas fa-phone w-4 mr-2"></i>
+                        <a href="tel:+5511999999999" class="hover:text-primary transition-colors">
+                            (11) 9 9999-9999
+                        </a>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-envelope w-4 mr-2"></i>
+                        <a href="mailto:contato@autoescolaplus.com.br" class="hover:text-primary transition-colors">
+                            contato@autoescolaplus.com.br
+                        </a>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-map-marker-alt w-4 mr-2 mt-1 flex-shrink-0"></i>
+                        <span>Av. Principal, 123<br>São Paulo, SP</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- Social Media -->
+            <div>
+                <h3 class="font-semibold text-foreground mb-4">Redes Sociais</h3>
+                <div class="flex space-x-4">
+                    <a href="#" class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Copyright -->
+        <div class="border-t border-border mt-12 pt-8 text-center">
+            <p class="text-muted-foreground text-sm">
+                © 2024 AutoEscola Plus. Todos os direitos reservados.
+            </p>
+        </div>
+    </div>
+</footer>
+<!-- @END_COMPONENT: Footer -->
+
+<script>
+(function() {
+    // Navigation functionality
+    const navLinks = document.querySelectorAll('.nav-link');
+    const pages = document.querySelectorAll('.page');
+    
+    function showPage(pageId) {
+        // Hide all pages
+        pages.forEach(page => page.classList.remove('active'));
+        
+        // Show selected page
+        const targetPage = document.getElementById(pageId);
+        if (targetPage) {
+            targetPage.classList.add('active');
+        }
+        
+        // Update active nav link
+        navLinks.forEach(link => link.classList.remove('active'));
+        const activeLink = document.querySelector(`[data-page="${pageId}"]`);
+        if (activeLink) {
+            activeLink.classList.add('active');
+        }
+        
+        // Scroll to top
+        window.scrollTo(0, 0);
+    }
+    
+    // Add click listeners to navigation links
+    navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const pageId = link.getAttribute('data-page');
+            showPage(pageId);
+        });
+    });
+    
+    // Mobile menu toggle
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    if (mobileMenuBtn && mobileMenu) {
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    }
+    
+    // Testimonials carousel
+    const testimonialSlides = document.querySelectorAll('.carousel-slide');
+    const prevBtn = document.getElementById('prev-testimonial');
+    const nextBtn = document.getElementById('next-testimonial');
+    let currentSlide = 0;
+    
+    function showTestimonial(index) {
+        testimonialSlides.forEach((slide, i) => {
+            slide.classList.toggle('active', i === index);
+        });
+    }
+    
+    if (prevBtn && nextBtn) {
+        prevBtn.addEventListener('click', () => {
+            currentSlide = currentSlide === 0 ? testimonialSlides.length - 1 : currentSlide - 1;
+            showTestimonial(currentSlide);
+        });
+        
+        nextBtn.addEventListener('click', () => {
+            currentSlide = currentSlide === testimonialSlides.length - 1 ? 0 : currentSlide + 1;
+            showTestimonial(currentSlide);
+        });
+    }
+    
+    // Auto-rotate testimonials
+    setInterval(() => {
+        if (testimonialSlides.length > 0) {
+            currentSlide = currentSlide === testimonialSlides.length - 1 ? 0 : currentSlide + 1;
+            showTestimonial(currentSlide);
+        }
+    }, 5000);
+    
+    // FAQ Accordion
+    const accordionTriggers = document.querySelectorAll('.accordion-trigger');
+    
+    accordionTriggers.forEach(trigger => {
+        trigger.addEventListener('click', () => {
+            const target = trigger.getAttribute('data-target');
+            const content = document.getElementById(target);
+            const icon = trigger.querySelector('i');
+            
+            if (content) {
+                const isActive = content.classList.contains('active');
+                
+                // Close all accordions
+                document.querySelectorAll('.accordion-content').forEach(item => {
+                    item.classList.remove('active');
+                });
+                
+                document.querySelectorAll('.accordion-trigger i').forEach(iconEl => {
+                    iconEl.style.transform = 'rotate(0deg)';
+                });
+                
+                // Toggle current accordion
+                if (!isActive) {
+                    content.classList.add('active');
+                    icon.style.transform = 'rotate(180deg)';
+                }
+            }
+        });
+    });
+    
+    // Form submission placeholder
+    const contactForm = document.querySelector('form');
+    if (contactForm) {
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            // TODO: Implement form submission logic
+            alert('Formulário enviado! Em breve entraremos em contato.');
+        });
+    }
+    
+    // Number counter animation
+    function animateCounters() {
+        const counters = document.querySelectorAll('.number-counter');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counter = entry.target;
+                    const target = parseInt(counter.textContent.replace(/\D/g, ''));
+                    const suffix = counter.textContent.replace(/\d/g, '');
+                    let current = 0;
+                    const increment = target / 100;
+                    
+                    const updateCounter = () => {
+                        current += increment;
+                        if (current < target) {
+                            counter.textContent = Math.floor(current) + suffix;
+                            requestAnimationFrame(updateCounter);
+                        } else {
+                            counter.textContent = target + suffix;
+                        }
+                    };
+                    
+                    updateCounter();
+                    observer.unobserve(counter);
+                }
+            });
+        });
+        
+        counters.forEach(counter => observer.observe(counter));
+    }
+    
+    // Initialize counter animation
+    animateCounters();
+    
+    // Smooth scroll for CTA buttons
+    document.querySelectorAll('button').forEach(button => {
+        button.addEventListener('click', (e) => {
+            // Add subtle interaction feedback
+            button.style.transform = 'scale(0.98)';
+            setTimeout(() => {
+                button.style.transform = '';
+            }, 150);
+        });
+    });
+    
+})();
+</script>
+
+</body>
+</html>
