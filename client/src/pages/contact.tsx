@@ -265,8 +265,7 @@ export default function Contact() {
                     <div>
                       <h3 className="font-semibold text-foreground mb-1">Endereço</h3>
                       <p className="text-muted-foreground" data-testid="contact-address">
-                        Av. Principal, 123<br />
-                        São Paulo, SP - CEP: 01000-000
+                        Fortaleza, CE
                       </p>
                     </div>
                   </div>
@@ -362,15 +361,18 @@ export default function Contact() {
             </p>
           </div>
           
-          {/* Google Maps Placeholder */}
-          <div className="bg-gray-200 h-96 rounded-xl flex items-center justify-center mb-6" data-testid="maps-container">
-            <div className="text-center">
-              <i className="fas fa-map-marked-alt text-4xl text-muted-foreground mb-4"></i>
-              <p className="text-muted-foreground">
-                Mapa do Google Maps<br />
-                <span className="text-sm">Av. Principal, 123 - São Paulo, SP</span>
-              </p>
-            </div>
+          {/* Google Maps */}
+          <div className="h-96 rounded-xl overflow-hidden shadow-lg mb-6" data-testid="maps-container">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3980.8957306494713!2d-38.49764812521349!3d-3.8325470961412713!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7c748974adea79d%3A0x6d335f6b60942225!2sAuto%20Escola%20Prime!5e0!3m2!1spt-BR!2sbr!4v1756360434084!5m2!1spt-BR!2sbr"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen={true}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Localização da Auto Escola Prime"
+            ></iframe>
           </div>
           
           <div className="text-center">
@@ -378,11 +380,11 @@ export default function Contact() {
               <div className="flex items-center justify-center space-x-6">
                 <div>
                   <h3 className="font-semibold text-foreground mb-1">Endereço Completo</h3>
-                  <p className="text-muted-foreground">Av. Principal, 123 - São Paulo, SP</p>
+                  <p className="text-muted-foreground">Auto Escola Prime - Fortaleza, CE</p>
                 </div>
                 <button 
                   className="btn-primary px-6 py-2 rounded-lg font-semibold"
-                  onClick={() => window.open("https://maps.google.com/?q=Av.+Principal,+123+São+Paulo+SP", "_blank")}
+                  onClick={() => window.open("https://www.google.com/maps/place/Auto+Escola+Prime/@-3.8325471,-38.4976481,17z/data=!3m1!4b1!4m6!3m5!1s0x7c748974adea79d:0x6d335f6b60942225!8m2!3d-3.8325471!4d-38.4950732!16s%2Fg%2F11bxcvl8_h", "_blank")}
                   data-testid="button-view-maps"
                 >
                   <i className="fas fa-external-link-alt mr-2"></i>

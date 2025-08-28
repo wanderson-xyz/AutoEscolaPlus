@@ -28,9 +28,9 @@ export default function HeroSection({
         <img 
           src={backgroundImage}
           alt={backgroundAlt}
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover fixed"
         />
-        <div className="hero-bg absolute inset-0"></div>
+        <div className="absolute inset-0 bg-black/40"></div>
       </div>
       
       <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 animate-fade-in">

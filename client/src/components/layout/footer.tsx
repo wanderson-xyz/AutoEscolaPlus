@@ -95,7 +95,7 @@ export default function Footer() {
               </li>
               <li className="flex items-start">
                 <i className="fas fa-map-marker-alt w-4 mr-2 mt-1 flex-shrink-0"></i>
-                <span data-testid="footer-address">Av. Principal, 123<br />São Paulo, SP</span>
+                <span data-testid="footer-address">Fortaleza, CE</span>
               </li>
             </ul>
           </div>
@@ -117,6 +117,15 @@ export default function Footer() {
                 data-testid="footer-instagram"
               >
                 <i className="fab fa-instagram"></i>
+              </a>
+              <a 
+                href="https://wa.me/5511999999999" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 bg-accent/10 rounded-full flex items-center justify-center text-accent hover:bg-accent hover:text-white transition-colors"
+                data-testid="footer-whatsapp"
+              >
+                <i className="fab fa-whatsapp"></i>
               </a>
             </div>
           </div>

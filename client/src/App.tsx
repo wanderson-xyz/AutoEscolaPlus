@@ -5,6 +5,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
+import FloatingWhatsApp from "@/components/ui/floating-whatsapp";
 import Home from "@/pages/home";
 import About from "@/pages/about";
 import Services from "@/pages/services";
@@ -27,6 +28,7 @@ function Router() {
         </Switch>
       </main>
       <Footer />
+      <FloatingWhatsApp />
     </div>
   );
 }
