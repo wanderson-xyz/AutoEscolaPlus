@@ -24,11 +24,11 @@ export default function HeroSection({
   return (
     <section className="relative h-screen flex items-center justify-center text-center text-white">
       {/* Background Image */}
-      <div className="absolute inset-0 z-0">
+      <div className="fixed inset-0 -z-10">
         <img 
           src={backgroundImage}
           alt={backgroundAlt}
-          className="w-full h-full object-cover fixed"
+          className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-black/40"></div>
       </div>

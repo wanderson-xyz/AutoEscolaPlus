@@ -5,13 +5,21 @@ export default function Services() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="py-20 bg-background">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative py-20 bg-muted overflow-hidden">
+        <div className="absolute inset-0">
+          <img 
+            src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1920&h=600"
+            alt="Car fleet background"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-primary/80"></div>
+        </div>
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4" data-testid="page-title">
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4" data-testid="page-title">
               Nossos Serviços
             </h1>
-            <p className="text-xl text-muted-foreground">
+            <p className="text-xl text-white/90">
               Cursos completos para todas as categorias de habilitação
             </p>
           </div>
@@ -19,7 +27,7 @@ export default function Services() {
       </section>
 
       {/* License Categories Section */}
-      <section className="py-20 bg-muted">
+      <section className="py-20 bg-background relative z-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-8">
             {/* Category A */}
@@ -222,7 +230,7 @@ export default function Services() {
       </section>
 
       {/* Additional Services Section */}
-      <section className="py-20 bg-background">
+      <section className="py-20 bg-muted relative z-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4" data-testid="section-title-additional">
@@ -283,7 +291,7 @@ export default function Services() {
       </section>
 
       {/* How It Works Section */}
-      <section className="py-20 bg-muted">
+      <section className="py-20 bg-background relative z-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4" data-testid="section-title-how-it-works">
