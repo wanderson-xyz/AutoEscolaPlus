@@ -24,7 +24,7 @@ export default function HeroSection({
   return (
     <section className="relative h-screen flex items-center justify-center text-center text-white overflow-hidden">
       {/* Background Image */}
-      <div className="absolute inset-0 z-0">
+      <div className="fixed inset-0 z-[1]">
         <img 
           src={backgroundImage}
           alt={backgroundAlt}
@@ -33,7 +33,7 @@ export default function HeroSection({
         <div className="absolute inset-0 bg-black/60"></div>
       </div>
       
-      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 animate-fade-in">
+      <div className="relative z-[3] max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 animate-fade-in">
         <h1 className="text-4xl md:text-6xl font-bold mb-6 text-white drop-shadow-lg" data-testid="hero-title">
           {title}
         </h1>

@@ -141,14 +141,14 @@ export default function Testimonials() {
       </section>
 
       {/* Featured Testimonial Carousel */}
-      <section className="py-20 bg-background relative z-20">
+      <section className="py-20 bg-background relative z-[2]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <TestimonialCarousel testimonials={featuredTestimonials} />
         </div>
       </section>
 
       {/* More Testimonials */}
-      <section className="py-20 bg-muted relative z-20">
+      <section className="py-20 bg-muted relative z-[2]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4" data-testid="section-title-more-testimonials">
@@ -187,7 +187,7 @@ export default function Testimonials() {
       </section>
 
       {/* Success Stories Statistics */}
-      <section className="py-20 bg-background relative z-20">
+      <section className="py-20 bg-background relative z-[2]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4" data-testid="section-title-success-stories">
@@ -203,7 +203,7 @@ export default function Testimonials() {
       </section>
 
       {/* Video Testimonials */}
-      <section className="py-20 bg-muted relative z-20">
+      <section className="py-20 bg-muted relative z-[2]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4" data-testid="section-title-video-testimonials">

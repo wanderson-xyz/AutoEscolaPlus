@@ -27,7 +27,7 @@ export default function About() {
       </section>
 
       {/* History Section */}
-      <section className="py-20 bg-background relative z-20">
+      <section className="py-20 bg-background relative z-[2]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -65,7 +65,7 @@ export default function About() {
       </section>
 
       {/* Values Section */}
-      <section className="py-20 bg-muted relative z-20">
+      <section className="py-20 bg-muted relative z-[2]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4" data-testid="section-title-values">
@@ -117,7 +117,7 @@ export default function About() {
       </section>
 
       {/* Team Section */}
-      <section className="py-20 bg-background relative z-20">
+      <section className="py-20 bg-background relative z-[2]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4" data-testid="section-title-team">
@@ -178,7 +178,7 @@ export default function About() {
       </section>
 
       {/* Facilities Section */}
-      <section className="py-20 bg-muted relative z-20">
+      <section className="py-20 bg-muted relative z-[2]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4" data-testid="section-title-facilities">

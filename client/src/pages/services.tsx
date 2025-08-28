@@ -27,7 +27,7 @@ export default function Services() {
       </section>
 
       {/* License Categories Section */}
-      <section className="py-20 bg-background relative z-20">
+      <section className="py-20 bg-background relative z-[2]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-8">
             {/* Category A */}
@@ -230,7 +230,7 @@ export default function Services() {
       </section>
 
       {/* Additional Services Section */}
-      <section className="py-20 bg-muted relative z-20">
+      <section className="py-20 bg-muted relative z-[2]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4" data-testid="section-title-additional">
@@ -291,7 +291,7 @@ export default function Services() {
       </section>
 
       {/* How It Works Section */}
-      <section className="py-20 bg-background relative z-20">
+      <section className="py-20 bg-background relative z-[2]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4" data-testid="section-title-how-it-works">

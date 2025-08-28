@@ -42,7 +42,7 @@ export default function Home() {
       />
 
       {/* Why Choose Section */}
-      <section className="py-20 bg-background relative z-30">
+      <section className="py-20 bg-background relative z-[2]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4" data-testid="section-title-why-choose">
@@ -91,7 +91,7 @@ export default function Home() {
       </section>
 
       {/* Services Section */}
-      <section className="py-20 bg-muted relative z-30">
+      <section className="py-20 bg-muted relative z-[2]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4" data-testid="section-title-services">

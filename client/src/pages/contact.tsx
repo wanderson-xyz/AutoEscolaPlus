@@ -120,7 +120,7 @@ export default function Contact() {
       </section>
 
       {/* Contact Form and Info */}
-      <section className="py-20 bg-background relative z-20">
+      <section className="py-20 bg-background relative z-[2]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Contact Form */}
@@ -358,7 +358,7 @@ export default function Contact() {
       </section>
 
       {/* Location Section */}
-      <section className="py-20 bg-muted relative z-20">
+      <section className="py-20 bg-muted relative z-[2]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4" data-testid="section-title-location">
@@ -405,7 +405,7 @@ export default function Contact() {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20 bg-background relative z-20">
+      <section className="py-20 bg-background relative z-[2]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4" data-testid="section-title-faq">
