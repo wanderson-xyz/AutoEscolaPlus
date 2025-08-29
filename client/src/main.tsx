@@ -1,19 +1,25 @@
 import { createRoot } from "react-dom/client";
 import "./index.css";
 
-// App simplificada para debug por etapas
-function SimpleApp() {
+// PASSO 1: Teste básico com TailwindCSS
+function Step1App() {
   return (
-    <div style={{ padding: "20px", fontSize: "18px" }}>
-      <h1>AutoEscola Plus - Versão Simplificada</h1>
-      <p>Esta é uma versão simplificada para identificar o problema.</p>
-      <p>Se você vê isso, o React está funcionando no Vercel.</p>
-      <div style={{ marginTop: "20px", padding: "15px", background: "#f0f0f0" }}>
-        <h2>Próximo passo:</h2>
-        <p>Adicionar componentes um por um para identificar qual está causando a tela branca.</p>
+    <div className="min-h-screen bg-white p-8">
+      <h1 className="text-3xl font-bold text-blue-600 mb-4">
+        AutoEscola Plus - PASSO 1
+      </h1>
+      <p className="text-gray-700 mb-4">
+        ✅ React funcionando<br/>
+        ✅ TailwindCSS funcionando
+      </p>
+      <div className="bg-green-100 p-4 rounded-lg">
+        <p className="text-green-800">
+          Se você vê este styling, TailwindCSS está OK. 
+          Próximo: adicionar React Query...
+        </p>
       </div>
     </div>
   );
 }
 
-createRoot(document.getElementById("root")!).render(<SimpleApp />);
+createRoot(document.getElementById("root")!).render(<Step1App />);
