@@ -1,0 +1,119 @@
+Quero adaptar este projeto para deploy na Vercel.
+Atualmente ele tem uma estrutura com client/ (Vite + React SPA) e server/ (Express + TypeScript), mas a Vercel não mantém processos Node long-running, então precisamos migrar para funções serverless.
+
+Faça todas as modificações listadas abaixo:
+
+🔹 1. Migrar o backend Express para funções serverless
+
+Criar uma pasta api/ na raiz com os seguintes arquivos:
+
+api/_db.ts: helper que conecta ao Postgres usando Drizzle ORM + Neon (@neondatabase/serverless).
+
+api/contact.ts: rota POST que valida com Zod (insertContactSchema) e insere no banco (contacts).
+
+api/contacts.ts: rota GET que lista contatos em ordem decrescente de createdAt.
+
+Reaproveitar shared/schema.ts (já existe).
+
+Parar de usar MemStorage (não funciona em ambiente serverless).
+
+🔹 2. Conectar ao banco Neon / Postgres
+
+Usar a variável de ambiente DATABASE_URL.
+
+Incluir verificação de erro caso não esteja definida.
+
+Antes do primeiro deploy, rodar npm run db:push para criar as tabelas.
+
+Documentar que DATABASE_URL deve ser configurada nos Secrets do Replit e depois nas Environment Variables da Vercel.
+
+🔹 3. Configuração da Vercel
+
+Criar um vercel.json na raiz com:
+
+{
+  "version": 2,
+  "functions": {
+    "api/**/*.ts": { "runtime": "nodejs20.x" }
+  },
+  "builds": [
+    {
+      "src": "client/**",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "dist/public",
+        "buildCommand": "npm run vercel-build"
+      }
+    },
+    {
+      "src": "api/**/*.ts",
+      "use": "@vercel/node"
+    }
+  ],
+  "rewrites": [
+    { "source": "/api/(.*)", "destination": "/api/$1" },
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+}
+
+🔹 4. Ajustar package.json
+
+Adicionar script:
+
+"vercel-build": "vite build"
+
+
+Adicionar engines:
+
+"engines": { "node": ">=20" }
+
+
+Manter o script "build" original apenas para Replit (vite build && esbuild ...).
+
+A Vercel deve usar somente "vercel-build".
+
+🔹 5. Ajustar vite.config.ts
+
+Plugins do Replit (runtimeErrorOverlay, cartographer) devem ser usados apenas em dev.
+
+Envolver em condição:
+
+...(process.env.NODE_ENV !== "production" ? [runtimeErrorOverlay()] : [])
+
+🔹 6. Limpeza do projeto
+
+Remover a pasta server/ se não for mais necessária.
+
+Garantir que node_modules/ e .git/ não estejam dentro do projeto enviado para a Vercel.
+
+🔹 7. Passos de deploy
+
+Configurar DATABASE_URL no Replit (Secrets).
+
+Rodar npm run db:push para aplicar migrations.
+
+Commitar as mudanças.
+
+Importar projeto na Vercel.
+
+Definir DATABASE_URL em Environment Variables da Vercel.
+
+Deploy.
+
+🔹 8. Resultado esperado
+
+POST /api/contact → salva contato no banco.
+
+GET /api/contacts → retorna todos os contatos ordenados por createdAt desc.
+
+Rotas SPA (/about, /services, etc.) funcionam direto (fallback para index.html).
+
+➡️ Tarefas finais para você (Replit AI):
+
+Criar os arquivos novos (api/_db.ts, api/contact.ts, api/contacts.ts, vercel.json).
+
+Alterar package.json e vite.config.ts conforme descrito.
+
+Remover o backend Express (server/) e dependências associadas.
+
+Me entregar o projeto pronto para rodar npm run dev no Replit e deployar na Vercel sem ajustes manuais.
