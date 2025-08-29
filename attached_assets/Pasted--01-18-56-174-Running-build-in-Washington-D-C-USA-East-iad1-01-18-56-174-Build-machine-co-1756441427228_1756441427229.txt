@@ -1,0 +1,116 @@
+[01:18:56.174] Running build in Washington, D.C., USA (East) – iad1
+[01:18:56.174] Build machine configuration: 2 cores, 8 GB
+[01:18:56.191] Cloning github.com/wanderson-xyz/AutoEscolaPlus (Branch: main, Commit: e62ccf8)
+[01:18:56.659] Cloning completed: 467.000ms
+[01:18:57.580] Restored build cache from previous deployment (H9P2LJFCm1EuVBykPBHrM6fcX2fB)
+[01:18:58.118] Running "vercel build"
+[01:18:58.536] Vercel CLI 46.0.5
+[01:18:58.718] WARN! Due to `builds` existing in your configuration file, the Build and Development Settings defined in your Project Settings will not apply. Learn More: https://vercel.link/unused-build-settings
+[01:18:59.435] Installing dependencies...
+[01:19:00.962] 
+[01:19:00.963] up to date in 1s
+[01:19:00.963] 
+[01:19:00.963] 59 packages are looking for funding
+[01:19:00.963]   run `npm fund` for details
+[01:19:00.998] Running "npm run vercel-build"
+[01:19:01.120] 
+[01:19:01.121] > rest-express@1.0.0 vercel-build
+[01:19:01.121] > npm run build && rm -rf public && mkdir public && cp -r dist/public/* public/
+[01:19:01.121] 
+[01:19:01.237] 
+[01:19:01.237] > rest-express@1.0.0 build
+[01:19:01.239] > vite build
+[01:19:01.240] 
+[01:19:01.562] [36mvite v5.4.19 [32mbuilding for production...[36m[39m
+[01:19:01.621] transforming...
+[01:19:06.821] [32m✓[39m 1842 modules transformed.
+[01:19:07.253] rendering chunks...
+[01:19:07.254] computing gzip size...
+[01:19:07.264] [2m../dist/public/[22m[32mindex.html                 [39m[1m[2m  1.55 kB[22m[1m[22m[2m │ gzip:   0.72 kB[22m
+[01:19:07.266] [2m../dist/public/[22m[2massets/[22m[35mindex-vtCoqpLo.css  [39m[1m[2m 65.49 kB[22m[1m[22m[2m │ gzip:  11.34 kB[22m
+[01:19:07.266] [2m../dist/public/[22m[2massets/[22m[36mindex-BGJ37zs8.js   [39m[1m[33m500.14 kB[39m[22m[2m │ gzip: 149.08 kB[22m
+[01:19:07.266] [32m✓ built in 5.67s[39m
+[01:19:07.267] [33m
+[01:19:07.267] (!) Some chunks are larger than 500 kB after minification. Consider:
+[01:19:07.267] - Using dynamic import() to code-split the application
+[01:19:07.267] - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+[01:19:07.267] - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.[39m
+[01:19:07.364] Running "npm run vercel-build"
+[01:19:07.477] 
+[01:19:07.478] > rest-express@1.0.0 vercel-build
+[01:19:07.478] > npm run build && rm -rf public && mkdir public && cp -r dist/public/* public/
+[01:19:07.478] 
+[01:19:07.597] 
+[01:19:07.598] > rest-express@1.0.0 build
+[01:19:07.598] > vite build
+[01:19:07.599] 
+[01:19:07.847] [36mvite v5.4.19 [32mbuilding for production...[36m[39m
+[01:19:07.900] transforming...
+[01:19:12.701] [32m✓[39m 1842 modules transformed.
+[01:19:13.060] rendering chunks...
+[01:19:13.069] computing gzip size...
+[01:19:13.085] [2m../dist/public/[22m[32mindex.html                 [39m[1m[2m  1.55 kB[22m[1m[22m[2m │ gzip:   0.72 kB[22m
+[01:19:13.086] [2m../dist/public/[22m[2massets/[22m[35mindex-vtCoqpLo.css  [39m[1m[2m 65.49 kB[22m[1m[22m[2m │ gzip:  11.34 kB[22m
+[01:19:13.087] [2m../dist/public/[22m[2massets/[22m[36mindex-BGJ37zs8.js   [39m[1m[33m500.14 kB[39m[22m[2m │ gzip: 149.08 kB[22m
+[01:19:13.087] [32m✓ built in 5.21s[39m
+[01:19:13.087] [33m
+[01:19:13.087] (!) Some chunks are larger than 500 kB after minification. Consider:
+[01:19:13.088] - Using dynamic import() to code-split the application
+[01:19:13.088] - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+[01:19:13.088] - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.[39m
+[01:19:13.340] Using TypeScript 5.6.3 (local user-provided)
+[01:19:19.803] Running "npm run vercel-build"
+[01:19:19.915] 
+[01:19:19.916] > rest-express@1.0.0 vercel-build
+[01:19:19.916] > npm run build && rm -rf public && mkdir public && cp -r dist/public/* public/
+[01:19:19.916] 
+[01:19:20.029] 
+[01:19:20.029] > rest-express@1.0.0 build
+[01:19:20.029] > vite build
+[01:19:20.029] 
+[01:19:20.270] [36mvite v5.4.19 [32mbuilding for production...[36m[39m
+[01:19:20.322] transforming...
+[01:19:25.099] [32m✓[39m 1842 modules transformed.
+[01:19:25.486] rendering chunks...
+[01:19:25.497] computing gzip size...
+[01:19:25.516] [2m../dist/public/[22m[32mindex.html                 [39m[1m[2m  1.55 kB[22m[1m[22m[2m │ gzip:   0.72 kB[22m
+[01:19:25.516] [2m../dist/public/[22m[2massets/[22m[35mindex-vtCoqpLo.css  [39m[1m[2m 65.49 kB[22m[1m[22m[2m │ gzip:  11.34 kB[22m
+[01:19:25.517] [2m../dist/public/[22m[2massets/[22m[36mindex-BGJ37zs8.js   [39m[1m[33m500.14 kB[39m[22m[2m │ gzip: 149.08 kB[22m
+[01:19:25.518] [33m
+[01:19:25.521] (!) Some chunks are larger than 500 kB after minification. Consider:
+[01:19:25.521] - Using dynamic import() to code-split the application
+[01:19:25.521] - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+[01:19:25.521] - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.[39m
+[01:19:25.521] [32m✓ built in 5.22s[39m
+[01:19:25.577] Using TypeScript 5.6.3 (local user-provided)
+[01:19:26.377] Running "npm run vercel-build"
+[01:19:26.492] 
+[01:19:26.492] > rest-express@1.0.0 vercel-build
+[01:19:26.492] > npm run build && rm -rf public && mkdir public && cp -r dist/public/* public/
+[01:19:26.492] 
+[01:19:26.609] 
+[01:19:26.610] > rest-express@1.0.0 build
+[01:19:26.610] > vite build
+[01:19:26.610] 
+[01:19:26.853] [36mvite v5.4.19 [32mbuilding for production...[36m[39m
+[01:19:26.905] transforming...
+[01:19:31.527] [32m✓[39m 1842 modules transformed.
+[01:19:31.931] rendering chunks...
+[01:19:31.942] computing gzip size...
+[01:19:31.958] [2m../dist/public/[22m[32mindex.html                 [39m[1m[2m  1.55 kB[22m[1m[22m[2m │ gzip:   0.72 kB[22m
+[01:19:31.959] [2m../dist/public/[22m[2massets/[22m[35mindex-vtCoqpLo.css  [39m[1m[2m 65.49 kB[22m[1m[22m[2m │ gzip:  11.34 kB[22m
+[01:19:31.959] [2m../dist/public/[22m[2massets/[22m[36mindex-BGJ37zs8.js   [39m[1m[33m500.14 kB[39m[22m[2m │ gzip: 149.08 kB[22m
+[01:19:31.960] [33m
+[01:19:31.960] (!) Some chunks are larger than 500 kB after minification. Consider:
+[01:19:31.960] - Using dynamic import() to code-split the application
+[01:19:31.960] - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+[01:19:31.960] - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.[39m
+[01:19:31.961] [32m✓ built in 5.08s[39m
+[01:19:32.011] Using TypeScript 5.6.3 (local user-provided)
+[01:19:32.727] Build Completed in /vercel/output [33s]
+[01:19:32.928] Deploying outputs...
+[01:19:39.491] Deployment completed
+[01:19:40.293] Creating build cache...
+[01:20:10.690] Created build cache: 30.392s
+[01:20:10.691] Uploading build cache [101.52 MB]
+[01:20:11.774] Build cache uploaded: 1.088s
